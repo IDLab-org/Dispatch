@@ -1,0 +1,62 @@
+{{- with .Values.agent }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ $.Values.namespace }}
+  name: {{ .name }}
+  labels:
+    app: {{ .name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .name }}
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: {{ .image }}
+          imagePullPolicy: Always
+          command: ["aca-py", "start"]
+          args:
+          - --recreate-wallet
+          - --replace-public-did
+          - --public-invites
+          - --enable-undelivered-queue
+          - --wallet-allow-insecure-seed
+          - --admin-insecure-mode
+          - --debug-connections
+          - --debug-credentials
+          - --debug-presentations
+          - --auto-provision
+          - --auto-accept-invites
+          - --auto-accept-requests
+          - --auto-respond-messages
+          - --auto-respond-credential-proposal
+          - --auto-respond-credential-offer
+          - --auto-respond-credential-request
+          - --auto-respond-presentation-proposal
+          - --auto-respond-presentation-request
+          - --auto-accept-intro-invitation-requests
+          - --auto-store-credential
+          - --auto-verify-presentation
+          - --auto-disclose-features
+          - --auto-ping-connection
+          - --emit-new-didcomm-prefix
+          - --emit-new-didcomm-mime-type
+          - --exch-use-unencrypted-tags
+          - --preserve-exchange-records
+          ports:
+            {{- range .service_ports }}
+            - containerPort: {{ .targetPort }}
+            {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ .name }}-env
+            - configMapRef:
+                name: {{ .name }}-env
+{{- end }}

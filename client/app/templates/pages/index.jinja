@@ -1,0 +1,108 @@
+{% extends('layouts/base.jinja')%}
+{% block content %}
+<div class="container container-tight">
+    <!-- <div class="text-center mb-4">
+        <a href="." class="navbar-brand navbar-brand-autodark">
+            <img src="./static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+        </a>
+    </div> -->
+    <div class="">
+        {# <div class="card-body text-center py-4 p-sm-5">
+            <!-- <img src="{{ url_for('static', filename='logo.png') }}" height="120" class="mb-n2" alt=""> -->
+            <!-- <h1 class="">Welcome!</h1> -->
+            <a href="{{session['exchange_didcomm']}}">
+                <img src="{{ qrcode(session['exchange_http'], error_correction='H', box_size=4) }}">
+            </a>
+            <!-- <p class="text-secondary">This demo will demonstrate how connectionless proof requests work</p> -->
+        </div> #}
+        <div class="hr-text hr-text-center hr-text-spaceless">Credential Offers</div>
+        <div class="row g-2 align-items-center mb-3">
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Movie Ticket
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Store Reciept
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Utility Bill
+                </a>
+            </div>
+        </div>
+        <div class="hr-text hr-text-center hr-text-spaceless">Proof Requests</div>
+        <div class="row g-2 align-items-center mb-3">
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Mail-in Rebate
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Showtime
+                </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 col-xl py-3">
+                <a href="#" class="btn btn-outline-primary w-100">
+                    Address
+                </a>
+            </div>
+        </div>
+        <!-- <div class="card-body">
+            <div class="mb-3">
+                <a class="card card-link" href="#">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <span class="avatar rounded">EP</span>
+                            </div>
+                            <div class="col">
+                                <div class="font-weight-medium">Egan Poetz</div>
+                                <div class="text-secondary">Research Nurse</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="mb-3">
+                <a class="card card-link" href="#">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <span class="avatar rounded">EP</span>
+                            </div>
+                            <div class="col">
+                                <div class="font-weight-medium">Egan Poetz</div>
+                                <div class="text-secondary">Research Nurse</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div> -->
+    </div>
+    <!-- <div class="row align-items-center mt-3">
+        <div class="col-4">
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100" aria-label="25% Complete">
+                    <span class="visually-hidden">25% Complete</span>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="btn-list justify-content-end">
+                <a href="#" class="btn btn-link link-secondary">
+                    Set up later
+                </a>
+                <a href="#" class="btn btn-primary">
+                    Continue
+                </a>
+            </div>
+        </div>
+    </div> -->
+</div>
+{% endblock %}

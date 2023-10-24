@@ -1,0 +1,60 @@
+{
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": "ada73bf4-efbf-4b0e-9b5a-8917e7f43d96",
+    "imageUrl": "https://vc.dtt.idlab.app/logo",
+    "requests~attach": [
+        {
+            "@id": "request-0",
+            "mime-type": "application/json",
+            "data": {
+                "json": {
+                    "@type": "https://didcomm.org/issue-credential/2.0/offer-credential",
+                    "@id": "ffb26005-7cc6-4e7f-ad32-f732a5126396",
+                    "~thread": {
+                        "pthid": "ada73bf4-efbf-4b0e-9b5a-8917e7f43d96"
+                    },
+                    "~trace": {
+                        "target": "log",
+                        "full_thread": true,
+                        "trace_reports": []
+                    },
+                    "credential_preview": {
+                        "@type": "https://didcomm.org/issue-credential/2.0/credential-preview",
+                        "attributes": []
+                    },
+                    "formats": [
+                        {
+                            "attach_id": "ld_proof",
+                            "format": "aries/ld-proof-vc-detail@v1.0"
+                        }
+                    ],
+                    "comment": "create automated v2.0 credential exchange record",
+                    "offers~attach": [
+                        {
+                            "@id": "ld_proof",
+                            "mime-type": "application/json",
+                            "data": {
+                                "base64": "eyJjcmVkZW50aWFsIjogeyJAY29udGV4dCI6IFsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiLCAiaHR0cHM6Ly9jb250ZXh0cy52Y3BsYXlncm91bmQub3JnL2V4YW1wbGVzL2Zvb2Qtc2FmZXR5LWNlcnRpZmljYXRpb24vdjEuanNvbiIsICJodHRwczovL3czaWQub3JnL3NlY3VyaXR5L3N1aXRlcy9lZDI1NTE5LTIwMjAvdjEiXSwgInR5cGUiOiBbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwgIkZvb2RTYWZldHlDZXJ0aWZpY2F0aW9uQ3JlZGVudGlhbCJdLCAiaXNzdWVyIjogeyJpZCI6ICJkaWQ6c292OlJ6V0h5cGNxUlpTQjFwcndYbkFwc1MiLCAibmFtZSI6ICJGb29kIFNhZmV0eSBDZXJ0aWZpZXJzLCBJbmMuIn0sICJpc3N1YW5jZURhdGUiOiAiMjAyMy0xMC0wOVQxMzo1OToyM1oiLCAiY3JlZGVudGlhbFN1YmplY3QiOiB7ImNlcnRpZmljYXRpb24iOiB7ImNlcnRpZmljYXRlSWQiOiAidXJuOnV1aWQ6ODQ2MGM0MDQtYzBhNS00NjUzLWFlYWUtNDRkMDNhMWE3MzM0IiwgImV4YW1EYXRlIjogIjIwMTEtMTEtMTEiLCAidGVzdENvZGUiOiAidXJuOnV1aWQ6ZGY1MmI1MTQtZTEzYS00MmI3LTgwMzAtM2Y5MjhhMjdkMTY3IiwgInR5cGUiOiAiRm9vZFNhZmV0eUNlcnRpZmljYXRpb24ifSwgIm5hbWUiOiAiSmFuZSBEb2UifSwgImRlc2NyaXB0aW9uIjogIlRoaXMgaW5kaXZpZHVhbCBoYXMgcGFzc2VkIHRoZSBTYWZlQ2hlZiBGb29kIFNhZmV0eSBDZXJ0aWZpY2F0aW9uIGV4YW1pbmF0aW9uIHN1Y2Nlc3NmdWxseS4ifSwgIm9wdGlvbnMiOiB7InByb29mVHlwZSI6ICJFZDI1NTE5U2lnbmF0dXJlMjAxOCJ9fQ=="
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "services": [
+        {
+            "id": "#inline",
+            "type": "did-communication",
+            "recipientKeys": [
+                "did:key:z6Mkr8vDDQFjhVmTRQi3B64C2HjtXG2xVdyRiWKWzUDuM2zz"
+            ],
+            "serviceEndpoint": "https://agent.dtt.idlab.app"
+        }
+    ],
+    "accept": [
+        "didcomm/aip1",
+        "didcomm/aip2;env=rfc19"
+    ],
+    "label": "IDLab DTT Bench"
+}

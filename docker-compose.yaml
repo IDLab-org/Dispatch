@@ -1,0 +1,68 @@
+---
+version: '2'
+services:
+  vc-api:
+    build:
+      context: ./vc-api
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - agent
+    environment:
+      AGENT_METHOD: key
+      AGENT_VERKEY: GM5aqC8Ka4XaAHdvZ4NeqUuPKXCpD5rArynkDQeFKmU3
+      AGENT_DID: VA56jZQD1V8dvhzD6vBqP4
+      AGENT_KEY_TYPE: ed25519
+      AGENT_ADMIN_ENDPOINT: http://agent:8020
+      VC_API_ENDPOINT: https://vc-api.dtt-cloud.idlab.app
+  agent:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.agent
+    restart: always
+    ports:
+      - "8020:8020"
+      - "8021:8021"
+      - "8022:8022"
+    entrypoint: ["aca-py", "start"]
+    command:
+      - --recreate-wallet
+      - --wallet-allow-insecure-seed
+      - --admin-insecure-mode
+      - --auto-provision
+      - --auto-accept-invites
+      - --auto-accept-requests
+      - --auto-respond-messages
+      - --auto-respond-credential-proposal
+      - --auto-respond-credential-offer
+      - --auto-respond-credential-request
+      - --auto-respond-presentation-proposal
+      - --auto-respond-presentation-request
+      - --auto-accept-intro-invitation-requests
+      - --auto-store-credential
+      - --auto-verify-presentation
+      - --auto-disclose-features
+      - --auto-ping-connection
+      - --emit-new-didcomm-prefix
+      - --emit-new-didcomm-mime-type
+      - --exch-use-unencrypted-tags
+    environment:
+      ACAPY_LABEL: IDLab's DTT Credential Service
+      ACAPY_ENDPOINT: https://agent.dtt-cloud.idlab.app
+      ACAPY_GENESIS_URL: http://test.bcovrin.vonx.io/genesis
+      ACAPY_ADMIN: '["0.0.0.0", "8020"]'
+      ACAPY_WALLET_KEY: idlab_vc-api_demo
+      ACAPY_WALLET_SEED: idlab_vc-api_demo-00000000000000
+      ACAPY_WALLET_TYPE: askar
+      ACAPY_INBOUND_TRANSPORT: '[["http", "0.0.0.0", "8021"], ["ws", "0.0.0.0", "8022"]]'
+      ACAPY_OUTBOUND_TRANSPORT: '["http", "ws"]'
+  caddy:
+    build:
+      context: ./agent
+      dockerfile: Dockerfile.caddy
+    ports:
+      - 2015:2015
+    depends_on:
+      - agent

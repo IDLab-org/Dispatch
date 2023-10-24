@@ -1,0 +1,7 @@
+:2015 {
+    @ws {
+        header Upgrade websocket
+    }
+    reverse_proxy agent:8021
+    reverse_proxy @ws agent:8022
+}

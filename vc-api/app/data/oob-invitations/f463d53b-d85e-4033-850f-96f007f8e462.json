@@ -1,0 +1,41 @@
+{
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": "f463d53b-d85e-4033-850f-96f007f8e462",
+    "imageUrl": "https://vc.dtt.idlab.app/logo",
+    "requests~attach": [
+        {
+            "@id": "request-0",
+            "mime-type": "application/json",
+            "data": {
+                "json": {
+                    "@type": "https://didcomm.org/present-proof/1.0/request-presentation",
+                    "@id": "8d972fae-3932-4876-9b0f-d9bb98c5ffe4",
+                    "comment": "",
+                    "request_presentations~attach": [
+                        {
+                            "@id": "libindy-request-presentation-0",
+                            "mime-type": "application/json",
+                            "data": {
+                                "base64": "eyJuYW1lIjogIlByb29mIHJlcXVlc3QiLCAidmVyc2lvbiI6ICIxLjAiLCAicmVxdWVzdGVkX2F0dHJpYnV0ZXMiOiB7InJlcXVlc3QiOiB7Im5hbWVzIjogWyJlbWFpbCJdLCAicmVzdHJpY3Rpb25zIjogW3siY3JlZF9kZWZfaWQiOiAiUnpXSHlwY3FSWlNCMXByd1huQXBzUzozOkNMOjgzOTU4OkRUVCBBY2NvdW50IFBhc3MifV19fSwgInJlcXVlc3RlZF9wcmVkaWNhdGVzIjoge30sICJub25jZSI6ICI4ODEzMDYyMjcxNjEyMTUxNjUwNDU1OTEifQ=="
+                            }
+                        }
+                    ],
+                    "~thread": {
+                        "pthid": "f463d53b-d85e-4033-850f-96f007f8e462"
+                    }
+                }
+            }
+        }
+    ],
+    "services": [
+        {
+            "id": "#inline",
+            "type": "did-communication",
+            "recipientKeys": [
+                "did:key:z6MkkXhTsHAmxBvXgN52EFna4c2nsndW7sP9PDKQrPbVRNjw"
+            ],
+            "serviceEndpoint": "https://agent.dtt.idlab.app"
+        }
+    ],
+    "label": "IDLab DTT Bench"
+}

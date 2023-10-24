@@ -1,0 +1,35 @@
+{{- with .Values.vc_api }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ $.Values.namespace }}
+  name: {{ .name }}
+  labels:
+    app: {{ .name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .name }}
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: {{ .image }}
+          imagePullPolicy: Always
+          command: ["uvicorn", "main:app"]
+          args: ["--reload", "--host", "0.0.0.0"]
+          ports:
+            {{- range .ports }}
+            - containerPort: {{ .port }}
+            {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ .name }}-env
+            - configMapRef:
+                name: {{ .name }}-env
+{{- end }}

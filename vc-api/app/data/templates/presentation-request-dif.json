@@ -1,0 +1,101 @@
+{
+    "auto_verify": false,
+    "comment": "string",
+    "presentation_request": {
+      "dif": {
+        "options": {
+          "challenge": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "domain": "4jt78h47fh47"
+        },
+        "presentation_definition": {
+          "format": {
+            "jwt": {},
+            "jwt_vc": {},
+            "jwt_vp": {},
+            "ldp": {},
+            "ldp_vc": {},
+            "ldp_vp": {}
+          },
+          "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "input_descriptors": [
+            {
+              "constraints": {
+                "fields": [
+                  {
+                    "filter": {
+                      "const": "string",
+                      "enum": [
+                        "string"
+                      ],
+                      "exclusiveMaximum": "string",
+                      "exclusiveMinimum": "string",
+                      "format": "string",
+                      "maxLength": 1234,
+                      "maximum": "string",
+                      "minLength": 1234,
+                      "minimum": "string",
+                      "not": false,
+                      "pattern": "string",
+                      "type": "string"
+                    },
+                    "id": "string",
+                    "path": [
+                      "string"
+                    ],
+                    "predicate": "required",
+                    "purpose": "string"
+                  }
+                ],
+                "is_holder": [
+                  {
+                    "directive": "required",
+                    "field_id": [
+                      "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                    ]
+                  }
+                ],
+                "limit_disclosure": "string",
+                "status_active": "required",
+                "status_revoked": "required",
+                "status_suspended": "required",
+                "subject_is_issuer": "required"
+              },
+              "group": [
+                "string"
+              ],
+              "id": "string",
+              "metadata": {},
+              "name": "string",
+              "purpose": "string",
+              "schema": {
+                "oneof_filter": [
+                  [
+                    {
+                      "uri": "https://www.w3.org/Test1#Test1"
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "name": "string",
+          "purpose": "string",
+          "submission_requirements": [
+            {
+              "count": 1234,
+              "from": "string",
+              "from_nested": [
+                "string"
+              ],
+              "max": 1234,
+              "min": 1234,
+              "name": "string",
+              "purpose": "string",
+              "rule": "all"
+            }
+          ]
+        }
+      }
+    },
+    "trace": false
+  }

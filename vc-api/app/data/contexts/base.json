@@ -1,0 +1,10 @@
+{
+    "@context": {
+      "@protected": true,
+      "id": "@id",
+      "type": "@type",
+      "name": "https://schema.org/name",
+      "image": "https://schema.org/image",
+      "description": "https://schema.org/description"
+    }
+  }

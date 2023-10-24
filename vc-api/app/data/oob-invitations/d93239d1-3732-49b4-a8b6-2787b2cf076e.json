@@ -1,0 +1,19 @@
+{
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": "d93239d1-3732-49b4-a8b6-2787b2cf076e",
+    "imageUrl": "https://vc.dtt.idlab.app/logo",
+    "services": [
+        {
+            "id": "#inline",
+            "type": "did-communication",
+            "recipientKeys": [
+                "did:key:z6MkjEiBYajMi9GwKmwcnpCGxVpx3kqeK7eUZGUb6RGKZd2w"
+            ],
+            "serviceEndpoint": "https://agent.dtt.idlab.app"
+        }
+    ],
+    "label": "IDLab DTT Bench",
+    "handshake_protocols": [
+        "https://didcomm.org/connections/1.0"
+    ]
+}

@@ -1,0 +1,24 @@
+---
+{{- with .Values.agent }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: {{ $.Values.namespace }}
+  name: {{ .name }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  {{- range .ingress }}
+  - host: {{ .host }}
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ $.Values.agent.name }}
+            port:
+              number: {{ .port }}
+        path: /
+        pathType: ImplementationSpecific
+  {{- end }}
+{{- end }}

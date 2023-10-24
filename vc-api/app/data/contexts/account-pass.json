@@ -1,0 +1,9 @@
+{
+  "@context": {
+    "AccountPassCredential": "https://vc.dtt.idlab.app/contexts/account-pass/vocab#AccountPassCredential",
+    "role": "did:sov:RzWHypcqRZSB1prwXnApsS:2:AccountPassCredential:0.1#role",
+    "email": "did:sov:RzWHypcqRZSB1prwXnApsS:2:AccountPassCredential:0.1#email",
+    "display_name": "did:sov:RzWHypcqRZSB1prwXnApsS:2:AccountPassCredential:0.1#display_name",
+    "organization": "did:sov:RzWHypcqRZSB1prwXnApsS:2:AccountPassCredential:0.1#organization"
+  }
+}

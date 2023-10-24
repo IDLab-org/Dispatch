@@ -1,0 +1,10 @@
+{
+    "schema_name": "AccountPassCredential",
+    "schema_version": "0.2",
+    "attributes": [
+        "organization",
+        "role",
+        "email",
+        "display_name"
+    ]
+}

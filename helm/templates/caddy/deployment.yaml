@@ -1,0 +1,36 @@
+{{- with .Values.caddy }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ $.Values.namespace }}
+  name: {{ .name }}
+  labels:
+    app: {{ .name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .name }}
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: {{ .image }}
+          imagePullPolicy: Always
+          ports:
+            {{- range .ports }}
+            - containerPort: {{ .port }}
+            {{- end }}
+          volumeMounts:
+          - name: caddyfile
+            mountPath: /etc/caddy/Caddyfile
+            subPath: Caddyfile
+      volumes:
+      - name: caddyfile
+        configMap:
+          name: caddyfile
+{{- end }}

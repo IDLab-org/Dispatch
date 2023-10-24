@@ -1,0 +1,8 @@
+---
+endpoint: example.com
+inbound-transport: [["http", "0.0.0.0", "8021"]]
+outbound-transport: http
+admin-insecure-mode: True
+admin: ["0.0.0.0", "8020"]
+no-ledger: True
+wallet-allow-insecure-seed: True

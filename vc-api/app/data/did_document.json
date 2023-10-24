@@ -1,0 +1,35 @@
+{
+    "@context": [
+        "https://www.w3.org/ns/did/v1"
+    ],
+    "id": "did:sov:RzWHypcqRZSB1prwXnApsS",
+    "verificationMethod": [
+        {
+            "id": "did:sov:RzWHypcqRZSB1prwXnApsS#key-1",
+            "type": "Ed25519VerificationKey2018",
+            "controller": "did:sov:RzWHypcqRZSB1prwXnApsS",
+            "publicKeyBase58": "Ed2iJTN22vfXjiJjwGrDu8ZGrPinXsprfUG7kk34LSq2"
+        }
+    ],
+    "authentication": [
+        "did:sov:RzWHypcqRZSB1prwXnApsS#key-1"
+    ],
+    "assertionMethod": [
+        "did:sov:RzWHypcqRZSB1prwXnApsS#key-1"
+    ],
+    "service": [
+        {
+            "id": "did:sov:RzWHypcqRZSB1prwXnApsS#did-communication",
+            "type": "did-communication",
+            "serviceEndpoint": "https://agent.dtt.idlab.app",
+            "recipient_keys": [
+                "did:sov:RzWHypcqRZSB1prwXnApsS#key-1"
+            ],
+            "priority": 1,
+            "routing_keys": [],
+            "accept": [
+                "didcomm/aip2;env=rfc19"
+            ]
+        }
+    ]
+}

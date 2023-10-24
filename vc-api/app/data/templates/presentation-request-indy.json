@@ -1,0 +1,15 @@
+{
+  "name": "Proof request",
+  "requested_attributes": {
+    "email": {
+      "name": "email",
+      "restrictions": [
+        {
+          "cred_def_id": "RzWHypcqRZSB1prwXnApsS:3:CL:83202:DTT Account Pass"
+        }
+      ]
+    }
+  },
+  "requested_predicates": {},
+  "version": "1.0"
+}

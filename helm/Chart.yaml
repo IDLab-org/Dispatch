@@ -1,0 +1,8 @@
+---
+apiVersion: v2
+name: DTT-VC-API
+description: DTT Credentials Service
+type: application
+version: 0.0.1
+
+appVersion: "v0.0.1"

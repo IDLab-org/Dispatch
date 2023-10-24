@@ -1,0 +1,53 @@
+{
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": "b769aa4d-ffc9-48e5-9369-1ae66765950b",
+    "imageUrl": "https://vc.dtt.idlab.app/logo",
+    "requests~attach": [
+        {
+            "@id": "request-0",
+            "mime-type": "application/json",
+            "data": {
+                "json": {
+                    "@type": "https://didcomm.org/present-proof/2.0/request-presentation",
+                    "@id": "38301b58-edf6-431e-9677-f1a605e32fba",
+                    "~trace": {
+                        "target": "log",
+                        "full_thread": true,
+                        "trace_reports": []
+                    },
+                    "will_confirm": true,
+                    "request_presentations~attach": [
+                        {
+                            "@id": "indy",
+                            "mime-type": "application/json",
+                            "data": {
+                                "base64": "eyJuYW1lIjogIlByb29mIHJlcXVlc3QiLCAidmVyc2lvbiI6ICIxLjAiLCAicmVxdWVzdGVkX2F0dHJpYnV0ZXMiOiB7InJlcXVlc3QiOiB7Im5hbWVzIjogWyJlbWFpbCJdLCAicmVzdHJpY3Rpb25zIjogW3siY3JlZF9kZWZfaWQiOiAiUnpXSHlwY3FSWlNCMXByd1huQXBzUzozOkNMOjgzOTU4OkRUVCBBY2NvdW50IFBhc3MifV19fSwgInJlcXVlc3RlZF9wcmVkaWNhdGVzIjoge30sICJub25jZSI6ICI0OTY5NTI4NTU4MzI1NDQzNTQzNzcyOTIifQ=="
+                            }
+                        }
+                    ],
+                    "formats": [
+                        {
+                            "attach_id": "indy",
+                            "format": "hlindy/proof-req@v2.0"
+                        }
+                    ],
+                    "comment": "DTT Test Presentation Request",
+                    "~thread": {
+                        "pthid": "b769aa4d-ffc9-48e5-9369-1ae66765950b"
+                    }
+                }
+            }
+        }
+    ],
+    "services": [
+        {
+            "id": "#inline",
+            "type": "did-communication",
+            "recipientKeys": [
+                "did:key:z6MkfYohqM5Dbb6PhwmytuvbBPgSnxCr3a2BxUTcC4jcvqgq"
+            ],
+            "serviceEndpoint": "https://agent.dtt.idlab.app"
+        }
+    ],
+    "label": "IDLab DTT Bench"
+}
