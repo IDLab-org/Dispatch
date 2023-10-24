@@ -1,0 +1,85 @@
+{% extends 'layouts/base.jinja' %}
+{% block page %}
+<div class="container container-tight py-5">
+    <div class="">
+        <form method="post">
+            {{ form.csrf_token }}
+            <div class="mb-3 text-center">
+                <img src="https://github.com/hyperledger/aries/raw/main/collateral/Hyperledger_Aries_Logo_Color.png"
+                    height="50" class="navbar-brand-autodark">
+            </div>
+            <div class="mb-1">
+                <div class="row mb-1">
+                    {{ form.attachement.label(class_="col-3 col-form-label me-5") }}
+                    <div class="col">
+                        {{ form.attachement(class_="form-select form-control-rounded form-select-sm mt-2") }}
+                    </div>
+                </div>
+                <label class="row mb-1">
+                    <span class="col">{{ form.handshake.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.handshake(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label>
+                {# <label class="row mb-1">
+                    <span class="col">{{ form.anoncreds.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.anoncreds(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label> #}
+            </div>
+            {{ form.submit(class_="btn btn-dark btn-sm w-100") }}
+        </form>
+    </div>
+    {% if invitation %}
+    <div class="text-center">
+        <a href="{{ didcomm_url }}"><img class="rounded mb-3" height="200"
+                src="{{ qrcode(invitation_url, error_correction='H', icon_img='favicon.png') }}"></a>
+        <div class="text-center">
+            <a class="btn btn-ghost-dark btn-sm" data-bs-toggle="modal" data-bs-target="#modal-invitation">Invitation
+                Data</a>
+        </div>
+    </div>
+    <div class="modal modal-blur fade" id="modal-invitation" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Invitation Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mb-3">
+                    <pre>{{ invitation }}</pre>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {# <div class="">
+                <div class="card-body mb-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <div>
+                            <small class="text-muted">Mobile OOB</small>
+                            <h3 class="lh-1">Description</h3>
+                        </div>
+                    </div>
+                    <div class="text-muted mb-3">
+                        Test OOB connections & features on Aries compatible Mobile Wallets or Agents.
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0434-outofband/README.md"
+                        target="_blank">Read more about OOB here<i class="ms-1 bi bi-box-arrow-up-right"></i></a>
+                    <br>
+                    <a href="{{ url_for('main.backchannels') }}" target="_blank">Reference Backchannels<i
+                            class="ms-1 bi bi-box-arrow-up-right"></i></a>
+                </div>
+            </div> #}
+
+</div>
+{% endblock %}

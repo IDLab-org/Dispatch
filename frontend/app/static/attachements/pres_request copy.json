@@ -1,0 +1,30 @@
+{
+    "name": "sd-firstName",
+    "version": "0.0.1",
+    "requested_attributes": {
+       "ticket_attrs": {
+          "names": [
+                "firstName"
+             ],
+          "restrictions": [
+                {
+                   "schema_name": "person",
+                   "schema_version": "0.0.1"
+                }
+          ]
+       }
+    },
+    "requested_predicates": {
+        "valid": {
+            "name": "validUntil",
+            "p_type": "<",
+            "p_value": 20231208,
+            "restrictions": [
+                  {
+                     "schema_name": "e-ticket",
+                     "schema_version": "0.0.1"
+                  }
+            ]
+         }
+    }
+ }

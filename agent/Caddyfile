@@ -2,6 +2,6 @@
     @ws {
         header Upgrade websocket
     }
-    reverse_proxy agent:8021
-    reverse_proxy @ws agent:8022
+    reverse_proxy 35.183.15.35:8021
+    reverse_proxy @ws 35.183.15.35:8022
 }

@@ -1,0 +1,195 @@
+{% extends 'layouts/base.jinja' %}
+{% block page %}
+<div class="container"><br><br><br><br><br><br>
+    <div class="row">
+
+        <div class="col-3">
+            <form method="post">
+                {{ form.csrf_token }}
+                {# <div class="mb-3 text-center">
+                    <img src="https://github.com/hyperledger/aries/raw/main/collateral/Hyperledger_Aries_Logo_Color.png"
+                        height="50" class="navbar-brand-autodark">
+                </div> #}
+                <div class="mb-3 text-center">
+                    <img src="https://client.idlab.org/static/images/logo-bil-H.png" class="navbar-brand-autodark">
+                </div>
+                {# <label class="row">
+                    <span class="col-auto">{{ form.label.label(class_="form-label") }}</span>
+                    <span class="col">{{ form.label(class_="form-control form-control-flush form-control-sm", placeholder="OOB Playground") }}</span>
+                </label> #}
+                {# <label class="row">
+                    <span class="col-auto">{{ form.image_url.label(class_="form-label") }}</span>
+                    <span class="col">{{ form.image_url(class_="form-control form-control-flush form-control-sm", placeholder="https://oob-playground.dtt.idlab.app/static/favicon.png") }}</span>
+                </label> #}
+                {# <label class="row">
+                    <span class="col">{{ form.re_use.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.re_use(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label> #}
+                <div class="mb-1">
+                    <label class="row">
+                        <span class="col">{{ form.include_handshake.label(class_="form-label") }}</span>
+                        <span class="col-auto">
+                            <label class="form-check form-check-single form-switch">
+                                {{ form.include_handshake(class_="form-check-input") }}
+                            </label>
+                        </span>
+                    </label>
+                    {# {{ form.handshake.label(class_="form-label") }} #}
+                    {% for subfield in form.handshake %}
+                    <label class="form-check">
+                        {{ subfield(class_="form-check-input") }}
+                        {{ subfield.label(class_="form-check-label") }}
+                    </label>
+                    {% endfor %}
+                </div>
+                <div class="mb-1">
+                    <label class="row">
+                        <span class="col">{{ form.include_attachement.label(class_="form-label") }}</span>
+                        <span class="col-auto">
+                            <label class="form-check form-check-single form-switch">
+                                {{ form.include_attachement(class_="form-check-input") }}
+                            </label>
+                        </span>
+                    </label>
+                    {% for subfield in form.attachement %}
+                    <label class="form-check">
+                        {{ subfield(class_="form-check-input") }}
+                        {{ subfield.label(class_="form-check-label") }}
+                    </label>
+                    {% endfor %}
+                </div>
+                {# <label class="row">
+                    <span class="col">{{ form.auto_accept.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.auto_accept(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label> #}
+                {# <label class="row">
+                    <span class="col">{{ form.multi_use.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.multi_use(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label> #}
+                {# <label class="row">
+                    <span class="col">{{ form.cbor_encoding.label(class_="form-label") }}</span>
+                    <span class="col-auto">
+                        <label class="form-check form-check-single form-switch">
+                            {{ form.cbor_encoding(class_="form-check-input") }}
+                        </label>
+                    </span>
+                </label> #}
+                {# {{ form.attachement.label(class_="form-label") }} #}
+                {# {{ form.attachement(class_="form-select") }} #}
+                {{ form.submit(class_="btn btn-dark w-100 mt-1") }}
+            </form>
+
+        </div>
+
+        <div class="col-6">
+            {% if session['invitation_url'] %}
+            <div class="text-center">
+                {% if session["connection_state"] == "active" %}
+                <img class="rounded mb-3" height="360" src="{{ url_for('static', filename='logo.png') }}">
+                {% else %}
+                <img class="rounded mb-3" height="360"
+                    src="{{ qrcode(session['invitation_url'], error_correction='H', icon_img='favicon.png') }}"><br>
+                <label class="row">
+                    <span class="col-2"></span>
+                    <span class="col-4">
+                        <div class="text-center mb-3">
+                            <a class="btn btn-ghost-dark" data-bs-toggle="modal"
+                                data-bs-target="#modal-invitation">Invitation Data</a>
+                        </div>
+                    </span>
+                    <span class="col-4">
+                        <div class="text-center mb-3">
+                            <a href="{{ url_for('main.status') }}" class="btn btn-ghost-dark">Check Status</a>
+                        </div>
+                    </span>
+                    <span class="col-2"></span>
+                </label>
+                {# <form action="{{ url_for('main.post_backchannel') }}" method="post">
+                    {{ backchannel.csrf_token }}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">https://</span>
+                        {{ backchannel.endpoint(class_="form-control") }}
+                        <span class="input-group-text">/agent/command/out-of-band/receive-invitation</span>
+                    </div>
+                    {{ backchannel.submit(class_="btn btn-outline-dark w-100") }}
+                </form> #}
+                {% endif %}
+                <div>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if session["connection_state"] == "active" %}
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-title">{{ message }}</h4>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-warning" role="alert">
+                        <h4 class="alert-title">{{ message }}</h4>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="modal modal-blur fade" id="modal-invitation" tabindex="-1" style="display: none;"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Invitation Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <pre>{{ session['invitation'] }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col-3">
+            <div class="">
+                <div class="card-body mb-3">
+                    <div class="d-flex align-items-center mb-3">
+                        <div>
+                            <small class="text-muted">Mobile OOB</small>
+                            <h3 class="lh-1">Description</h3>
+                        </div>
+                    </div>
+                    <div class="text-muted mb-3">
+                        Test OOB connections & features on Aries compatible Mobile Wallets or Agents.
+                    </div>
+                    {# <div class="text-muted mb-3">
+                        Here's a list a free wallets to experiment with:
+                        <ul>
+                            <li><a href="https://play.google.com/store/search?q=bc%20wallet&c=apps" target="_blank">BC Wallet</a></li>
+                        </ul>
+                    </div> #}
+                </div>
+                <div class="card-footer">
+                    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0434-outofband/README.md"
+                        target="_blank">Read more about OOB here<i class="ms-1 bi bi-box-arrow-up-right"></i></a>
+                    <br>
+                    <a href="{{ url_for('main.backchannels') }}" target="_blank">Reference Backchannels<i
+                            class="ms-1 bi bi-box-arrow-up-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

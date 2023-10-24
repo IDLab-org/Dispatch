@@ -1,0 +1,6 @@
+{
+    "revocation_registry_size": 1000,
+    "schema_id": "BEsmcrUjSZLgsNAszbfJxt:2:person:0.0.1",
+    "support_revocation": true,
+    "tag": "Person"
+  }

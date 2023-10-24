@@ -1,0 +1,9 @@
+{
+  "attributes": [
+    "firstName",
+    "lastName",
+    "dobInt"
+  ],
+  "schema_name": "person",
+  "schema_version": "0.0.1"
+}

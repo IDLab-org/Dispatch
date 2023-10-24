@@ -1,6 +1,6 @@
 #! /bin/bash
 export DTT_VC_API_APP_DIR=$PWD
-export DTT_VC_API_TAG=0.0.82
+export DTT_VC_API_TAG=0.0.83
 export DTT_VC_API_IMAGE=idlaborg/dtt-vc-api:$DTT_VC_API_TAG
 
 docker build -t $DTT_VC_API_IMAGE .

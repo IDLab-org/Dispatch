@@ -1,0 +1,23 @@
+{
+   "connection_id": "bbe693f6-c6b8-4792-8e74-e148ab380970",
+   "credential_preview": {
+     "@type": "issue-credential/2.0/credential-preview",
+     "attributes": [
+       {
+         "name": "firstName",
+         "value": "Bob"
+       }
+     ]
+   },
+   "filter": {
+     "indy": {
+       "cred_def_id": "BEsmcrUjSZLgsNAszbfJxt:3:CL:66874:Person 2",
+       "issuer_did": "BEsmcrUjSZLgsNAszbfJxt",
+       "schema_id": "BEsmcrUjSZLgsNAszbfJxt:2:person:0.0.1",
+       "schema_issuer_did": "BEsmcrUjSZLgsNAszbfJxt",
+       "schema_name": "person",
+       "schema_version": "0.0.1"
+     }
+   },
+   "trace": true
+ }

@@ -1,0 +1,22 @@
+{
+   "presentation_request": {
+     "indy": {
+      "name": "sd-firstName",
+      "requested_attributes": {
+         "sd_attrs": {
+            "names": [
+                  "firstName"
+               ],
+            "restrictions": [
+                  {
+                     "schema_name": "person",
+                     "schema_version": "0.0.1"
+                  }
+            ]
+         }
+      },
+      "requested_predicates": {}
+    }
+ 
+   }
+ }

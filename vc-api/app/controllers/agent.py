@@ -222,6 +222,7 @@ def create_credential_offer(filer, credential, comment=None):
         headers=settings.AGENT_REQUEST_HEADERS,
         json=body,
     )
+    print(r.text)
     if r.status_code != 200:
         return None
 
